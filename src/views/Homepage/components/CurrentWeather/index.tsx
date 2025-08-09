@@ -44,7 +44,9 @@ const CurrentWeather: React.FC<Props> = ({ city }) => {
     <div className={styles.root}>
       <div className={styles.dateContainer}>
         <span className={styles.city}>{data.name}</span>
-        <span className={styles.date}>{formatDateShort(new Date())}</span>
+        <span className={styles.date}>
+          {formatDateShort(new Date(data.dt * 1000))}
+        </span>
       </div>
       <div className={styles.infoContainer}>
         <Image
