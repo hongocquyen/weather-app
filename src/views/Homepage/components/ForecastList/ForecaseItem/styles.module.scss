@@ -1,0 +1,132 @@
+@import 'src/utils/styles/typography';
+
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: toEm(32px);
+  .dateContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    box-sizing: border-box;
+    padding: 0 toEm(32px);
+    .date {
+      @include HeadingH3();
+      color: var(--color-white);
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  .item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: toEm(16px);
+    align-items: center;
+    box-sizing: border-box;
+    background: var(--color-neutral-4);
+    color: var(--color-neutral-3);
+
+    &:hover {
+      color: var(--color-white);
+    }
+    .leftContent {
+      display: flex;
+      margin-left: toEm(32px);
+      align-items: flex-start;
+      .time {
+        @include HeadingH4();
+      }
+    }
+    .centerContent {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: toEm(16px);
+      .weatherIcon {
+        width: toEm(64px);
+        height: toEm(64px);
+      }
+      .temps {
+        display: flex;
+        flex-direction: row;
+        .minTemp {
+          @include HeadingH4();
+        }
+        .maxTemp {
+          @include HeadingH4();
+        }
+      }
+    }
+
+    .rightContent {
+      display: flex;
+      justify-self: flex-end;
+      margin-right: toEm(32px);
+      .description {
+        @include HeadingH4();
+
+        text-align: right;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+@include media('<desktop') {
+  .content {
+    .item {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@include media('<tablet') {
+  .root {
+    gap: 16px;
+    .dateContainer {
+      padding: 0 16px;
+      .date {
+        @include HeadingH4();
+      }
+    }
+  }
+  .content {
+    .item {
+      grid-template-columns: 80px 1fr;
+      grid-template-areas:
+        'left right-top'
+        'left right-bottom';
+      row-gap: 0;
+      .leftContent {
+        grid-area: left;
+      }
+
+      .centerContent {
+        grid-area: right-top;
+        justify-self: flex-end;
+        margin-right: 16px;
+        margin-left: 0;
+        gap: 8px;
+        .temps {
+          .minTemp,
+          .maxTemp {
+            @include BodyTextLarge();
+          }
+        }
+      }
+
+      .rightContent {
+        grid-area: right-bottom;
+        margin-right: 16px;
+        justify-self: flex-end;
+        .description {
+          @include BodyTextLargeBold();
+        }
+      }
+    }
+  }
+}

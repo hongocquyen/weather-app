@@ -55,6 +55,7 @@ const CurrentWeather: React.FC<Props> = ({ city }) => {
           width={256}
           height={256}
           className={styles.weatherIcon}
+          priority
         />
         <div className={styles.generalContainer}>
           <span className={styles.temp}>{data.main.temp}°C</span>

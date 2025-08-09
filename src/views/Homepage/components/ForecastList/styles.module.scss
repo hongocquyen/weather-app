@@ -1,0 +1,42 @@
+@import 'src/utils/styles/typography';
+
+.root {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 80%;
+  gap: toEm(16px);
+
+  .title {
+    @include HeadingH3();
+    color: var(--color-white);
+  }
+
+  .forecastList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: toEm(16px);
+    box-sizing: border-box;
+    padding: toEm(32px) 0;
+    gap: toEm(16px);
+    background: var(--color-neutral-4);
+  }
+}
+
+@include media('<desktop') {
+  .root {
+    max-width: unset;
+  }
+}
+
+@include media('<tablet') {
+  .root {
+    max-width: unset;
+    .forecastList {
+      padding: 16px 0;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 export const getWeatherIconUrl = (
   iconCode: string,
-  size: '1x' | '2x' | '4x' = '4x'
+  size: '2x' | '4x' = '4x'
 ): string => {
   return `https://openweathermap.org/img/wn/${iconCode}@${size}.png`;
 };

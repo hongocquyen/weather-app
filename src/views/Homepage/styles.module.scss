@@ -2,10 +2,14 @@
 
 .root {
   @include initConfigureWidth();
-
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  gap: toEm(32px);
+  width: 100%;
 }

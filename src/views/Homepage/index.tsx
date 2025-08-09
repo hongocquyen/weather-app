@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import CurrentWeather from './components/CurrentWeather';
+import ForecastList from './components/ForecastList';
 
 type Props = {
   city: string;
@@ -10,7 +11,10 @@ type Props = {
 const Homepage: React.FC<Props> = ({ city }) => {
   return (
     <div className={styles.root}>
-      <CurrentWeather city={city} />
+      <div className={styles.content}>
+        <CurrentWeather city={city} />
+        <ForecastList city={city} />
+      </div>
     </div>
   );
 };
