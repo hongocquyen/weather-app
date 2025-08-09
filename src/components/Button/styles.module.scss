@@ -1,0 +1,60 @@
+@import 'src/utils/styles/typography';
+
+.button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  border-radius: toEm(4px);
+  padding: toEm(10px) toEm(20px);
+
+  height: toEm(40px);
+
+  background: var(--color-orange);
+  color: var(--color-black);
+
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    all 0.3s ease-out,
+    box-shadow 0s ease-out;
+
+  &.primary {
+    background: var(--color-orange);
+    color: var(--color-black);
+    &:hover {
+      background: #ffd84d;
+    }
+    &:active {
+      background: var(--color-orange);
+    }
+  }
+
+  &:disabled {
+    &.primary {
+      background-color: #cccccc;
+      color: #666666;
+    }
+  }
+
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .label {
+    @include BodyTextRegular();
+  }
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}

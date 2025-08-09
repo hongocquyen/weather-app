@@ -1,0 +1,20 @@
+@mixin fontFace(
+  $font-family,
+  $font-files,
+  $font-weight: normal,
+  $font-style: normal
+) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$font-files}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include fontFace('Syne', '../fonts/Syne-Regular');
+@include fontFace('Syne', '../fonts/Syne-Regular', 400);
+@include fontFace('Syne', '../fonts/Syne-SemiBold', 600);
+@include fontFace('Syne', '../fonts/Syne-Bold', 700);
+@include fontFace('Syne', '../fonts/Syne-ExtraBold', 900);
+@include fontFace('Dirtyline', '../fonts/Dirtyline', 400);

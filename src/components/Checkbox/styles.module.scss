@@ -1,0 +1,144 @@
+@import 'src/utils/styles/typography';
+
+.checkbox,
+.checkbox *,
+.checkbox *::before,
+.checkbox *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  margin: 0;
+
+  width: toEm(23px);
+  height: toEm(23px);
+  border-radius: toEm(6px);
+  background: transparent;
+  border: 1px solid #cdcdcd;
+
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    -webkit-box-shadow: 0 0 0 toEm(4px) #2469f6;
+    box-shadow: 0 0 0 toEm(4px) #2469f6;
+    border-radius: inherit;
+
+    opacity: 0;
+
+    -webkit-transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+    -o-transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+    transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+  }
+
+  &::before {
+    content: '';
+    top: 35%;
+    left: 50%;
+    position: absolute;
+    width: toEm(5px);
+    height: toEm(12px);
+    border-right: 1px solid #878787;
+    border-bottom: 1px solid #878787;
+
+    opacity: 0;
+
+    -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    -ms-transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    transform: translate(-50%, -50%) rotate(45deg) scale(0);
+
+    -webkit-transition:
+      all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),
+      opacity 0.1s;
+    -o-transition:
+      all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),
+      opacity 0.1s;
+    transition:
+      all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6),
+      opacity 0.1s;
+  }
+
+  &:hover {
+    border-color: #bdbdbd;
+
+    &::before {
+      opacity: 1;
+      border-color: #e3e3e3;
+
+      -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+      -ms-transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+      transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+
+      -webkit-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+      -o-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+      transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+    }
+  }
+
+  &:checked {
+    background: #2469f6;
+    border-color: transparent;
+    &::before {
+      opacity: 1;
+      border-color: #ffffff;
+
+      -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+      -ms-transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+      transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+
+      -webkit-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+      -o-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+      transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+    }
+    &:hover {
+      border-color: transparent;
+      background: #5087f8;
+
+      &::before {
+        border-color: #ffffff;
+      }
+    }
+  }
+
+  &:active {
+    &::after {
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none;
+
+      -webkit-box-shadow: none;
+      box-shadow: none;
+
+      opacity: 1;
+
+      &::before {
+        opacity: 1;
+        border-color: #878787;
+
+        -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+        -ms-transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+
+        -webkit-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+        -o-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+        transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+      }
+    }
+  }
+}

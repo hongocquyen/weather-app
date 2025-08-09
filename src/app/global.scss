@@ -1,0 +1,30 @@
+@import 'src/utils/styles/font';
+@import 'src/variables';
+@import 'src/utils/breakpoints';
+
+body {
+  font-family: Syne, sans-serif;
+  font-optical-sizing: auto;
+  margin: 0;
+  position: relative;
+
+  background: var(--color-neutral-1);
+  color: var(--color-white);
+}
+
+input,
+button {
+  font-family: Syne, sans-serif;
+  font-optical-sizing: auto;
+  @include initConfigureFontSize();
+}
+
+html {
+  @include initConfigureFontSize();
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

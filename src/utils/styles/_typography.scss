@@ -1,0 +1,115 @@
+@import 'src/utils/breakpoints';
+
+@mixin HeadingH1 {
+  font-weight: 700;
+  font-size: toEm(40px);
+  line-height: 1;
+}
+
+@mixin HeadingH2 {
+  font-weight: 700;
+  font-size: toEm(32px);
+  line-height: 1;
+}
+
+@mixin HeadingH3 {
+  font-weight: 600;
+  font-size: toEm(28px);
+  line-height: 1;
+}
+
+@mixin HeadingH4 {
+  font-weight: 600;
+  font-size: toEm(20px);
+  line-height: 1.4;
+}
+
+@mixin HeadingH5 {
+  font-weight: 400;
+  font-size: toEm(18px);
+  line-height: 1;
+}
+
+@mixin HeadingH6 {
+  font-weight: 700;
+  font-size: toEm(14px);
+  line-height: 1.43;
+}
+
+@mixin ButtonLarge {
+  font-weight: 700;
+  font-size: toEm(20px);
+  line-height: 1.2;
+}
+
+@mixin ButtonNormal {
+  font-weight: 700;
+  font-size: toEm(14px);
+  line-height: 1.71;
+}
+
+@mixin ButtonSmall {
+  font-weight: 600;
+  font-size: toEm(12px);
+  line-height: 1.33;
+}
+
+@mixin BodyTextLarge {
+  font-weight: 400;
+  font-size: toEm(18px);
+  line-height: 1.5;
+}
+
+@mixin BodyTextLargeBold {
+  font-weight: 600;
+  font-size: toEm(18px);
+  line-height: 1.5;
+}
+
+@mixin BodyTextRegular {
+  font-weight: 400;
+  font-size: toEm(14px);
+  line-height: 1.71;
+}
+
+@mixin BodyTextRegularBold {
+  font-weight: 600;
+  font-size: toEm(14px);
+  line-height: 1.71;
+}
+
+@mixin BodyTextSmall {
+  font-weight: 400;
+  font-size: toEm(12px);
+  line-height: 1.67;
+}
+
+@mixin BodyTextSmallBold {
+  font-weight: 600;
+  font-size: toEm(12px);
+  line-height: 1.67;
+}
+
+@mixin Caption {
+  font-weight: 400;
+  font-size: toEm(10px);
+  line-height: 1.5;
+}
+
+@mixin CaptionBold {
+  font-weight: 700;
+  font-size: toEm(10px);
+  line-height: 1.5;
+}
+
+@mixin CaptionSmall {
+  font-weight: 400;
+  font-size: toEm(8px);
+  line-height: 1.75;
+}
+
+@mixin Hero {
+  font-weight: 700;
+  font-size: toEm(50px);
+  line-height: 1;
+}
