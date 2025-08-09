@@ -7,7 +7,7 @@ type Props = {
   className?: string;
   label: string | React.ReactElement;
   disabled?: boolean;
-  type?: 'primary';
+  type?: 'primary' | 'outline';
   loading?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
