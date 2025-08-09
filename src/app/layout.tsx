@@ -5,8 +5,9 @@ import { Providers } from './providers';
 import Header from 'src/components/Header';
 
 export const metadata: Metadata = {
-  title: 'Foo',
-  description: 'Description Foo',
+  title: 'Weather App',
+  description:
+    'Get real-time weather information and 5-day forecasts for any city worldwide.',
 };
 
 export default function RootLayout({
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <Header />
+          <React.Suspense>
+            <Header />
+          </React.Suspense>
           {children}
         </Providers>
       </body>

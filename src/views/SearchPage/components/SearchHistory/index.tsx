@@ -17,7 +17,9 @@ const SearchHistory: React.FC<Props> = () => {
   if (history.length === 0) {
     return (
       <div className={styles.root}>
-        <span className={styles.title}>Search history</span>
+        <div className={styles.titleContainer}>
+          <span className={styles.title}>Search history</span>
+        </div>
         <div className={styles.emptyContainer}>
           <span className={styles.empty}>No search history</span>
         </div>
