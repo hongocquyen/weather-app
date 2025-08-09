@@ -1,0 +1,8 @@
+@import 'src/utils/styles/typography';
+
+.root {
+  width: 100%;
+  max-width: toEm(600px);
+  min-height: toEm(342px);
+  border-radius: toEm(16px);
+}

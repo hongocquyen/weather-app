@@ -1,0 +1,169 @@
+@import 'src/utils/styles/typography';
+
+.root {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 80%;
+  gap: toEm(8px);
+  padding: toEm(32px);
+  border-radius: toEm(16px);
+  border: 2px solid var(--color-neutral-1);
+  background: var(--color-black);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  .error {
+    @include HeadingH4();
+    color: var(--color-neutral-3);
+  }
+}
+
+.dateContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  .city {
+    @include HeadingH2();
+    color: var(--color-white);
+  }
+  .date {
+    @include HeadingH4();
+    color: var(--color-neutral-3);
+  }
+}
+
+.infoContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: toEm(16px);
+  .weatherIcon {
+    width: toEm(256px);
+    height: toEm(256px);
+  }
+  .generalContainer {
+    display: flex;
+    flex-direction: column;
+    gap: toEm(8px);
+    align-items: flex-end;
+    .temp {
+      @include Hero();
+      font-size: toEm(80px);
+    }
+    .description {
+      @include HeadingH4();
+      color: var(--color-neutral-3);
+      text-transform: capitalize;
+    }
+  }
+}
+
+.extraContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: toEm(8px);
+  justify-content: space-around;
+  align-items: flex-start;
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: toEm(8px);
+    align-items: center;
+    .label {
+      @include HeadingH4();
+      color: var(--color-neutral-2);
+    }
+    .value {
+      @include HeadingH3();
+      color: var(--color-white);
+    }
+    .windContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: toEm(8px);
+      .windDirection {
+        span {
+          @include HeadingH3();
+        }
+      }
+    }
+  }
+}
+
+@include media('<desktop') {
+  .root {
+    padding: 24px;
+    max-width: unset;
+  }
+
+  .dateContainer {
+    .city {
+      @include HeadingH3();
+    }
+  }
+
+  .infoContainer {
+    .generalContainer {
+      .temp {
+        font-size: toEm(64px);
+      }
+    }
+  }
+}
+
+@include media('<tablet') {
+  .root {
+    padding: 16px;
+  }
+
+  .dateContainer {
+    .city {
+      @include HeadingH4();
+    }
+    .date {
+      @include BodyTextLarge();
+    }
+  }
+
+  .infoContainer {
+    flex-direction: column;
+    .weatherIcon {
+      width: 128px;
+      height: 128px;
+    }
+    .generalContainer {
+      align-items: center;
+      margin-bottom: 16px;
+      .temp {
+        @include HeadingH1();
+      }
+      .description {
+        @include BodyTextLarge();
+      }
+    }
+  }
+
+  .extraContainer {
+    .item {
+      .label {
+        @include BodyTextLarge();
+      }
+      .value {
+        @include HeadingH4();
+      }
+      .windContainer {
+        .windDirection {
+          span {
+            @include HeadingH4();
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,18 +1,16 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import { CurrentWeather } from 'src/models';
+import CurrentWeather from './components/CurrentWeather';
 
 type Props = {
-  data?: CurrentWeather;
   city: string;
-  isLoading: boolean;
-  isError: boolean;
+  geoLoading: boolean;
 };
 
-const Homepage: React.FC<Props> = () => {
+const Homepage: React.FC<Props> = ({ city }) => {
   return (
     <div className={styles.root}>
-      <span>Homepage</span>
+      <CurrentWeather city={city} />
     </div>
   );
 };
