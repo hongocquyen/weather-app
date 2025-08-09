@@ -8,7 +8,7 @@ type Props = {
 };
 
 const CurrentWeatherSkeleton: React.FC<Props> = ({ className }) => {
-  return <Skeleton className={classNames(styles.root, className)}></Skeleton>;
+  return <Skeleton className={classNames(styles.root, className)} />;
 };
 
 export default CurrentWeatherSkeleton;

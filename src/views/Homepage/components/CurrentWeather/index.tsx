@@ -9,6 +9,7 @@ import {
 } from 'src/utils/weather';
 import { formatDateShort } from 'src/utils/date';
 import CurrentWeatherSkeleton from './CurrentWeatherSkeleton';
+import classNames from 'classnames';
 
 type Props = {
   city: string;
@@ -23,10 +24,10 @@ const CurrentWeather: React.FC<Props> = ({ city }) => {
 
   if (isError) {
     return (
-      <div className={styles.root}>
-        <span className={styles.error}>
-          Failed to load weather data
-          {error?.message && <>: {error.message}</>}
+      <div className={classNames(styles.root, styles.errorContainer)}>
+        <span className={styles.error}>Failed to load weather data </span>
+        <span className={styles.message}>
+          {error?.message ? error.message : 'Please try again later.'}
         </span>
       </div>
     );
@@ -34,7 +35,7 @@ const CurrentWeather: React.FC<Props> = ({ city }) => {
 
   if (!data) {
     return (
-      <div className={styles.root}>
+      <div className={classNames(styles.root, styles.errorContainer)}>
         <span className={styles.error}>No weather data available</span>
       </div>
     );

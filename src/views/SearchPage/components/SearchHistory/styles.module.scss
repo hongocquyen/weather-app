@@ -1,0 +1,141 @@
+@import 'src/utils/styles/typography';
+
+.root {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 80%;
+  gap: toEm(16px);
+
+  .titleContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    .title {
+      @include HeadingH3();
+      color: var(--color-white);
+    }
+    .clearHistory {
+      @include BodyTextLargeBold();
+      color: var(--color-neutral-2);
+      line-height: 1;
+      cursor: pointer;
+      &:hover {
+        color: var(--color-white);
+      }
+    }
+  }
+  .emptyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: toEm(16px);
+    min-height: toEm(300px);
+    border-radius: toEm(16px);
+    background: var(--color-neutral-4);
+    span {
+      @include HeadingH4();
+      text-align: center;
+      color: var(--color-white);
+    }
+  }
+
+  .historyList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 toEm(16px);
+    border-radius: toEm(8px);
+    background: var(--color-neutral-4);
+
+    .item {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: row;
+      padding: toEm(16px) 0;
+      border-bottom: 1px solid var(--color-neutral-3);
+      transition: background-color 0.2s ease;
+      color: var(--color-neutral-2);
+      &:hover {
+        color: var(--color-neutral-1);
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+      a {
+        text-decoration: none;
+        color: unset;
+      }
+      .cityName {
+        @include BodyTextLargeBold();
+      }
+      .actionContainer {
+        display: flex;
+        flex-direction: row;
+        gap: toEm(16px);
+        align-items: center;
+        justify-content: flex-end;
+        flex-grow: 1;
+        .iconSearch {
+          width: toEm(24px);
+          height: toEm(24px);
+          cursor: pointer;
+          &:hover {
+            color: var(--color-white);
+          }
+        }
+        .iconTrashCan {
+          width: toEm(32px);
+          height: toEm(32px);
+          cursor: pointer;
+          &:hover {
+            color: #e74c3c;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media('<desktop') {
+  .root {
+    max-width: unset;
+  }
+}
+
+@include media('<tablet') {
+  .root {
+    max-width: unset;
+    .titleContainer {
+      .title {
+        @include HeadingH4();
+      }
+      .clearHistory {
+        @include BodyTextRegularBold();
+        line-height: 1;
+      }
+    }
+    .historyList {
+      .item {
+        padding: toEm(8px) 0;
+        .actionContainer {
+          .iconSearch {
+            width: toEm(20px);
+            height: toEm(20px);
+          }
+          .iconTrashCan {
+            width: toEm(28px);
+            height: toEm(28px);
+          }
+        }
+      }
+    }
+  }
+}

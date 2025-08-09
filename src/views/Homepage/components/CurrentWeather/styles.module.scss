@@ -14,9 +14,17 @@
   background: var(--color-neutral-4);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
-  .error {
-    @include HeadingH4();
-    color: var(--color-neutral-3);
+  &.errorContainer {
+    min-height: toEm(460px);
+
+    .error {
+      @include HeadingH4();
+      color: var(--color-neutral-3);
+    }
+    .message {
+      @include HeadingH4();
+      color: var(--color-neutral-3);
+    }
   }
 }
 

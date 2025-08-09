@@ -23,6 +23,23 @@
     padding: toEm(32px) 0;
     gap: toEm(16px);
     background: var(--color-neutral-4);
+
+    &.errorContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: toEm(460px);
+
+      .error {
+        @include HeadingH4();
+        color: var(--color-neutral-3);
+      }
+      .message {
+        @include HeadingH4();
+        color: var(--color-neutral-3);
+      }
+    }
   }
 }
 

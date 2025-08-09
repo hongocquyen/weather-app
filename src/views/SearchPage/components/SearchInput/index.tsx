@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 import { useDebounce } from 'src/hooks/useDebounce';
 import IconSearch from 'assets/svg/ic_search.svg';
 import Spinner from 'src/components/Spinner';
+import { useSearchHistory } from 'src/hooks/useSearchHistory';
 
 type Props = {
   placeholder?: string;
@@ -20,6 +21,7 @@ const SearchInput: React.FC<Props> = ({
   const [query, setQuery] = React.useState('');
   const [isOpen, setIsOpen] = React.useState(false);
   const router = useRouter();
+  const { addToHistory } = useSearchHistory();
 
   const debouncedQuery = useDebounce(query, 300);
   const {
@@ -38,9 +40,10 @@ const SearchInput: React.FC<Props> = ({
   );
 
   const handleSuggestionClick = React.useCallback(
-    (cityName: string) => {
+    (cityName: string, country: string) => {
       setQuery('');
       setIsOpen(false);
+      addToHistory(cityName, country);
       router.push(`/?city=${encodeURIComponent(cityName)}`);
     },
     [router]
@@ -81,7 +84,9 @@ const SearchInput: React.FC<Props> = ({
             <li
               key={`${location.name}-${location.country}-${location.lat}`}
               className={styles.suggestionItem}
-              onClick={() => handleSuggestionClick(location.name)}
+              onClick={() =>
+                handleSuggestionClick(location.name, location.country)
+              }
             >
               <span className={styles.cityName}>{location.name}</span>
               <span className={styles.countryName}>{location.country}</span>

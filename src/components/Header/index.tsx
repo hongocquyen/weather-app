@@ -7,21 +7,34 @@ import { useGeolocation } from 'src/hooks/useGeolocation';
 import { RouteName } from 'src/models';
 import IconSearch from 'assets/svg/ic_search.svg';
 import styles from './styles.module.scss';
+import Skeleton from '../Skeleton';
 
 const Header = () => {
   const searchParams = useSearchParams();
   const urlCity = searchParams.get('city');
-  const { city: geoCity } = useGeolocation();
+  const {
+    city: geoCity,
+    loading: geoLoading,
+    getCurrentLocationCity,
+  } = useGeolocation();
 
-  const currentCity = urlCity || geoCity;
+  React.useEffect(() => {
+    getCurrentLocationCity();
+  }, []);
+
+  const selectedCity = urlCity || geoCity;
 
   return (
     <header className={styles.root}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <Link href={RouteName.Home}>
-            <span className={styles.currentCity}>{currentCity}</span>
-          </Link>
+          {geoLoading ? (
+            <Skeleton className={styles.currentCitySkeleton} />
+          ) : (
+            <Link href={RouteName.Home}>
+              <span className={styles.currentCity}>{selectedCity}</span>
+            </Link>
+          )}
           <Link href={RouteName.Search}>
             <IconSearch className={styles.iconSearch} />
           </Link>

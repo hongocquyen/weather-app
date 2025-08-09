@@ -28,6 +28,11 @@
         text-decoration: none;
         color: var(--color-white);
       }
+      .currentCitySkeleton {
+        height: toEm(28px);
+        border-radius: toEm(8px);
+        width: toEm(200px);
+      }
       .currentCity {
         @include HeadingH3();
         color: var(--color-white);
@@ -36,6 +41,28 @@
         width: toEm(24px);
         height: toEm(24px);
         cursor: pointer;
+        color: var(--color-neutral-2);
+        &:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+  }
+}
+
+@include media('<tablet') {
+  .root {
+    padding: toEm(12px) toEm(16px);
+    .wrapper {
+      .container {
+        width: 100%;
+        .currentCity {
+          @include HeadingH4();
+        }
+        .iconSearch {
+          width: toEm(20px);
+          height: toEm(20px);
+        }
       }
     }
   }

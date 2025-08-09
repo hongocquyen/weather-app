@@ -3,6 +3,18 @@
 .root {
   width: 100%;
   max-width: 80%;
-  min-height: toEm(342px);
+  min-height: toEm(460px);
   border-radius: toEm(16px);
+}
+
+@include media('<desktop') {
+  .root {
+    max-width: unset;
+  }
+}
+
+@include media('<tablet') {
+  .root {
+    min-height: toEm(400px);
+  }
 }

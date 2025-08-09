@@ -2,7 +2,31 @@
 
 .root {
   width: 100%;
-  max-width: 80%;
-  min-height: toEm(342px);
-  border-radius: toEm(16px);
+  display: flex;
+  flex-direction: column;
+  gap: toEm(16px);
+  box-sizing: border-box;
+  padding: 0 toEm(32px);
+  .itemContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: toEm(32px);
+    .title {
+      height: toEm(28px);
+      width: toEm(200px);
+      border-radius: toEm(8px);
+    }
+    .itemContent {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .item {
+        height: toEm(36px);
+        margin: toEm(14px) 0;
+        width: 100%;
+        border-radius: toEm(8px);
+      }
+    }
+  }
 }
