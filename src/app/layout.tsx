@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './global.scss';
 import React from 'react';
 import { Providers } from './providers';
+import Header from 'src/components/Header';
 
 export const metadata: Metadata = {
   title: 'Foo',
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );

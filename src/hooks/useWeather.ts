@@ -22,7 +22,7 @@ export const useForecast = (city: string) => {
   });
 };
 
-export const useLocationSearch = (query: string) => {
+export const useLocationsSearch = (query: string) => {
   return useQuery<Location[]>({
     queryKey: ['locations', query],
     queryFn: () => searchLocations(query),

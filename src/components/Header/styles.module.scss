@@ -1,0 +1,42 @@
+@import 'src/utils/styles/typography';
+
+.root {
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: toEm(16px) toEm(24px);
+  background: var(--color-black);
+  border-bottom: 1px solid var(--color-neutral-4);
+  z-index: 10;
+  margin-bottom: toEm(32px);
+  .wrapper {
+    @include initConfigureWidth();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container {
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: toEm(16px);
+      a {
+        text-decoration: none;
+        color: var(--color-white);
+      }
+      .currentCity {
+        @include HeadingH3();
+        color: var(--color-white);
+      }
+      .iconSearch {
+        width: toEm(24px);
+        height: toEm(24px);
+        cursor: pointer;
+      }
+    }
+  }
+}

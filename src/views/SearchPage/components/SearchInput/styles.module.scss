@@ -1,0 +1,147 @@
+@import 'src/utils/styles/typography';
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: toEm(600px);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--color-neutral-4);
+  border-radius: toEm(8px);
+  border: 1px solid var(--color-neutral-3);
+  transition: border-color 0.2s ease;
+
+  &:focus-within {
+    border-color: var(--color-neutral-1);
+  }
+  .searchInput {
+    width: 100%;
+    padding: toEm(16px) toEm(20px);
+    border: none;
+    outline: none;
+    background: transparent;
+    @include BodyTextLarge();
+    color: var(--color-neutral-1);
+
+    &::placeholder {
+      color: var(--color-neutral-3);
+    }
+  }
+
+  .searchIcon {
+    position: absolute;
+    right: toEm(16px);
+    width: toEm(16px);
+    height: toEm(16px);
+    color: var(--color-neutral-3);
+    pointer-events: none;
+  }
+}
+
+.suggestionsDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-neutral-4);
+  border-top: none;
+  border-radius: 0 0 toEm(12px) toEm(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: toEm(300px);
+  overflow-y: auto;
+  .loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: toEm(16px) toEm(20px);
+  }
+
+  .emptyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: toEm(16px) toEm(20px);
+    span {
+      @include BodyTextLarge();
+      text-align: center;
+      color: var(--color-white);
+    }
+  }
+
+  .errorContainer {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: toEm(16px) toEm(20px);
+    span {
+      color: #e74c3c;
+    }
+  }
+
+  .suggestionsList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .suggestionItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: toEm(12px) toEm(20px);
+      cursor: pointer;
+      border-bottom: 1px solid var(--color-neutral-3);
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: var(--color-neutral-3);
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .cityName {
+        @include BodyTextLargeBold();
+        color: var(--color-white);
+      }
+
+      .countryName {
+        @include BodyTextRegular();
+        color: var(--color-neutral-2);
+      }
+    }
+  }
+}
+
+@include media('<tablet') {
+  .container {
+    max-width: 100%;
+  }
+
+  .inputWrapper {
+    border-radius: toEm(8px);
+    .searchInput {
+      padding: toEm(14px) toEm(16px);
+      @include BodyTextRegular();
+    }
+
+    .searchIcon {
+      right: toEm(12px);
+      font-size: toEm(18px);
+    }
+  }
+
+  .suggestionsDropdown {
+    border-radius: 0 0 toEm(8px) toEm(8px);
+    .suggestionItem {
+      padding: toEm(10px) toEm(16px);
+    }
+  }
+}
